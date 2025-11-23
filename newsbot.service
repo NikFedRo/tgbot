@@ -1,0 +1,22 @@
+[Unit]
+Description=Telegram News Bot
+After=network.target
+
+[Service]
+Type=simple
+User=%i
+WorkingDirectory=/home/%i/tgbot
+Environment="PATH=/home/%i/tgbot/.venv/bin:/usr/local/bin:/usr/bin:/bin"
+ExecStart=/home/%i/tgbot/.venv/bin/python /home/%i/tgbot/bot.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+# Ограничения ресурсов (опционально)
+# MemoryMax=512M
+# CPUQuota=50%
+
+[Install]
+WantedBy=multi-user.target
+

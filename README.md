@@ -79,6 +79,17 @@ APP_URL=https://yourapp.example
   - Для Bot API — бот должен быть админом канала.
   - Для Pyrogram — проверьте логи: `watching @... -> id ...`, затем ожидайте `[Pyrogram] on_message ...` либо `[Pyrogram/Fallback] fetched ...`.
 
+## Деплой на сервер
+
+Для развертывания бота на Ubuntu 20.04 сервере с автоматическим запуском через systemd см. подробную инструкцию в [DEPLOY.md](DEPLOY.md).
+
+Кратко:
+1. Клонируйте репозиторий на сервер
+2. Создайте виртуальное окружение и установите зависимости
+3. Настройте `.env` файл
+4. Установите systemd service
+5. Запустите бота: `sudo systemctl start newsbot`
+
 ## Безопасность
 - Не коммитьте `.env` и файлы сессий (`pyrogram.session`, `.telethon.session`).
 - Храните `OPENROUTER_API_KEY` и `TELEGRAM_BOT_TOKEN` только локально/в секретах CI.
